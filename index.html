@@ -88,42 +88,61 @@
 		  </table>
 
 		<h2>Input Text</h2>
+
 		<form>
-			<label for="fruta1">Digite uma fruta que goste:</label>
+			<label for="fruta1">Digite uma fruta: (input text)</label>
 			<br>
 			<input type="text" id="fruta1" name="fruta1">
-			<br><br>
-			<label for="fruta2">Digite uma fruta que não goste:</label>
 			<br>
-			<input type="text" id="fruta2" name="fruta2">
-			<br><br>
-			<input type="submit" value="Enviar">
+			<label for="numero1">Digite um número: (input number)</label>
+			<br>
+			<input type="number" id="numero1" name="numero1">
+			<br>
+			<label for="numero1">Digite um telefone: (input tel)</label>
+			<br>
+			<input type="tel" id="numero1" name="numero1">
+			<br>
+			<label for="email1">Digite um email: (input e-mail)</label>
+			<br>
+			<input type="email" id="email1" name="email1">
+			<br>
+			<label for="data1">Digite uma data: (input date)</label>
+			<br>
+			<input type="date" id="data1" name="data1">
+			<br>
+			<label for="color1">Escolha uma cor: (input color)</label>
+			<br>
+			<input type="color" id="color1" name="color1">
 		</form>
 
 		<h2>Input Textarea</h2>
 		<form>
 			<p><label for="fruta1">Qual sua fruta favorita?</label></p>
 			<textarea id="fruta" name="fruta1" rows="4" cols="50" placeholder="Escreva aqui sua fruta favorita!"></textarea>
-			<br><br>
+			<br>
 			<input type="submit" value="Enviar">
 		</form>
 
 		<h2>Radio-Button</h2>
 		<form>
-			<p>Escolha sua fruta favorita:</p>
-			<input type="radio" id="amora" name="fav_fruta" value="amora">
-			<label for="amora">Amora</label><br>
-			<input type="radio" id="banana" name="fav_fruta" value="banana">
-			<label for="banana">Banana</label><br>
-			<input type="radio" id="cereja" name="fav_fruta" value="cereja">
-			<label for="cereja">Cereja</label>
-			<p>Escolha seu vegetal favorito:</p>
-			<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
-			<label for="abobrinha">Abobrinha</label><br>
-			<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
-			<label for="berinjela">Berinjela</label><br>  
-			<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
-			<label for="chuchu">Chuchu</label><br><br>
+			<fieldset>
+				<legend>Escolha sua fruta favorita:</legend>
+				<input type="radio" id="amora" name="fav_fruta" value="amora">
+				<label for="amora">Amora</label><br>
+				<input type="radio" id="banana" name="fav_fruta" value="banana">
+				<label for="banana">Banana</label><br>
+				<input type="radio" id="cereja" name="fav_fruta" value="cereja">
+				<label for="cereja">Cereja</label>
+			</fieldset>
+			<fieldset>
+				<legend>Escolha seu vegetal favorito:</legend>
+				<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
+				<label for="abobrinha">Abobrinha</label><br>
+				<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
+				<label for="berinjela">Berinjela</label><br>  
+				<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
+				<label for="chuchu">Chuchu</label><br>
+			</fieldset>
 			<input type="submit" value="Enviar">
 		</form>
 		<h2>Checkbox</h2>
@@ -134,7 +153,7 @@
 			<input type="checkbox" id="fruta2" name="banana" value="banana">
 			<label for="fruta2"> Eu gosto de banana.</label><br>
 			<input type="checkbox" id="fruta3" name="cereja" value="cereja">
-			<label for="fruta3"> Eu gosto de cereja.</label><br><br>
+			<label for="fruta3"> Eu gosto de cereja.</label><br>
 			<input type="submit" value="Enviar">
 		</form>
 
