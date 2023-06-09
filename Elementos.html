@@ -1,0 +1,157 @@
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+			
+			td, th {
+			  border: 1px solid #dddddd;
+			  text-align: left;
+			  padding: 8px;
+			}
+			
+			tr:nth-child(even) {
+			  background-color: #dddddd;
+			}
+
+
+			dt {
+			font-weight: bold;
+			padding-left: 30px;
+			}
+			dd {
+			margin: 0 0 1em 0;
+			padding-left: 30px;
+			}
+
+
+		</style>
+	</head>
+
+	<body>
+		<h1>Elementos HTML</h1>
+		<p>Nesta página estão alguns elementos para realização de testes.</p>
+		<p>Os forms não irão funcionar pois a proposta aqui é validar apenas o frontend.</p>
+
+		<h2>Lista não ordenada</h2>
+		<ul>
+			<li>Amora</li>
+			<li>Banana</li>
+			<li>Cereja</li>
+		</ul>  
+
+		<h2>Lista ordenada</h2>
+		<ol>
+			<li>Amora</li>
+			<li>Banana</li>
+			<li>Cereja</li>
+		</ol>  
+
+		<h2>Lista de descrição</h2>
+		<dl>
+			<dt>Amora</dt>
+			<dd>efeitos antioxidantes e anti-inflamatórios.</dd>
+			<dt>Banana</dt>
+			<dd>reduz a pressão arterial e evita cãibras musculares.</dd>
+			<dt>Cereja</dt>
+			<dd>ajuda a combater a depressão e a insônia.</dd>
+		</dl>		
+
+		<h2>Tabela</h2>
+
+		<table>
+			<tr>
+			  <th>Fruta</th>
+			  <th>Vitaminas</th>
+			  <th>Benefícios</th>
+			</tr>
+			<tr>
+			  <td>Amora</td>
+			  <td>A , C e K</td>
+			  <td>antioxidantes e anti-inflamatórios</td>
+			</tr>
+			<tr>
+			  <td>Banana</td>
+			  <td>A, B e C</td>
+			  <td>reduz a pressão e evita cãibras</td>
+			</tr>
+			<tr>
+			  <td>Cereja</td>
+			  <td>A e C</td>
+			  <td>combate a depressão e a insônia</td>
+			</tr>
+		  </table>
+
+		<h2>Input Text</h2>
+		<form>
+			<label for="fruta1">Digite uma fruta que goste:</label>
+			<br>
+			<input type="text" id="fruta1" name="fruta1">
+			<br><br>
+			<label for="fruta2">Digite uma fruta que não goste:</label>
+			<br>
+			<input type="text" id="fruta2" name="fruta2">
+			<br><br>
+			<input type="submit" value="Enviar">
+		</form>
+
+		<h2>Input Textarea</h2>
+		<form>
+			<p><label for="fruta1">Qual sua fruta favorita?</label></p>
+			<textarea id="fruta" name="fruta1" rows="4" cols="50" placeholder="Escreva aqui sua fruta favorita!"></textarea>
+			<br><br>
+			<input type="submit" value="Enviar">
+		</form>
+
+		<h2>Radio-Button</h2>
+		<form>
+			<p>Escolha sua fruta favorita:</p>
+			<input type="radio" id="amora" name="fav_fruta" value="amora">
+			<label for="amora">Amora</label><br>
+			<input type="radio" id="banana" name="fav_fruta" value="banana">
+			<label for="banana">Banana</label><br>
+			<input type="radio" id="cereja" name="fav_fruta" value="cereja">
+			<label for="cereja">Cereja</label>
+			<p>Escolha seu vegetal favorito:</p>
+			<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
+			<label for="abobrinha">Abobrinha</label><br>
+			<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
+			<label for="berinjela">Berinjela</label><br>  
+			<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
+			<label for="chuchu">Chuchu</label><br><br>
+			<input type="submit" value="Enviar">
+		</form>
+		<h2>Checkbox</h2>
+		<form>
+			<p>Escolha suas frutas favoritas:</p>
+			<input type="checkbox" id="fruta1" name="amora" value="amora">
+			<label for="fruta1"> Eu gosto de amora.</label><br>
+			<input type="checkbox" id="fruta2" name="banana" value="banana">
+			<label for="fruta2"> Eu gosto de banana.</label><br>
+			<input type="checkbox" id="fruta3" name="cereja" value="cereja">
+			<label for="fruta3"> Eu gosto de cereja.</label><br><br>
+			<input type="submit" value="Enviar">
+		</form>
+
+		<h2>Aria-Live</h2>
+		<p>Aria-Live: <span id="result1" aria-live="assertive">contagem 0</span></p>
+		<div>
+			<button onclick="update1();">Contar</button>
+		</div>
+	</body>
+
+	<script>
+		var contagem = 0;
+		function update1() {
+			contagem++;
+			result = "contagem " + contagem;
+			document.getElementById("result1").innerHTML=result;
+		}
+	</script>
+
+</html>
