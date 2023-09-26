@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Componentes para tecnologias assistivas - Components4TA</title>
+		<style>
+			table {
+			  font-family: arial, sans-serif;
+			  border-collapse: collapse;
+			  width: 100%;
+			}
+			
+			td, th {
+			  border: 1px solid #dddddd;
+			  text-align: left;
+			  padding: 8px;
+			}
+			
+			tr:nth-child(even) {
+			  background-color: #dddddd;
+			}
+
+
+			dt {
+			font-weight: bold;
+			padding-left: 30px;
+			}
+			dd {
+			margin: 0 0 1em 0;
+			padding-left: 30px;
+			}
+			
+
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<a href="#conteudo">Ir para o conteúdo</a>
+			<a href="index.html">Ir para a página inicial</a>
+			<h1> Componentes para teste com tecnologias assistivas</h1>
+		</header>
+		<main>
+			<p>Nesta página estão alguns elementos para realização de testes.</p>
+			<p>Os forms não irão funcionar pois a proposta aqui é validar apenas o frontend.</p>
+			<p>Escolha o tipo de componente na lista abaixo a ser verificado com a sua tecnologia assistiva</p>
+			<ul>
+				<li>
+					<a href="#Aformularios">Campos editáveis/entrada de dados </a>
+				</li>
+				<li>
+					<a href="#Adados">Campos de seleção de dados </a>
+				</li>
+				<li>
+					<a href="#Acontainers">Elementos textuais e containers de conteúdo </a>
+				</li>
+				<li>
+					<a href="#Alistas">Listas</a>
+				</li>
+				<li>
+					<a href="#Atabelas">Tabelas</a>
+				</li>
+				<li>
+					<a href="#Aguiasemenus"> Guias/abas e Menus customizados </a>
+				</li>
+				<li>
+					<a href="#Aimagens"> Imagens e conteúdos em mídia </a>
+				</li>
+			</ul>
+		<!-- ------------------------------------------------------------------------------------------------------ -->
+			<h2 id="Aformularios"> formulários </h2>
+			<form>
+				<label for="nome">Nome completo</label>
+				<input type="text" name="nome" id="nome" required placeholder="Zé Ninguém" autocomplete="name" />
+				
+				<label for="nomesocial">Nome Social</label>
+				<input type="text" name="nomesocial" id="nomesocial" placeholder="Zezinho" autocomplete="name" />
+				
+				<label for="apelido">Apelido</label>
+				<input type="text" name="apelido" id="apelido" />
+				
+				<label for="mailing">E-mail</label>
+				<input type="email" name="email" id="mailing" required placeholder="paulo@adeva.org.br" autocomplete="mail" />
+				
+				<label for="celu">Telefone móvel (Celular)</label>
+				<input type="tel" name="celu" id="celu" required autocomplete="tel" />
+				
+				<label for="datanasc">Data de nascimento</label>
+				<input type="date" name="datanasc" id="datanasc" required />
+				
+				<label for="periodo">Período do curso</label>
+				<select name="periodo" id="periodo" required>
+				<option value="">Selecione</option>
+				<option value="m">Manhã</option>
+				<option value="t">Tarde</option>
+				<option value="n">Noite</option>
+				</select>
+				
+				<fieldset>
+				<legend>gênero</legend>
+				<label for="fem">Feminino</label>
+				<input type="radio" name="genero" id="fem" value="fem" />
+				<label for="masc">Masculino</label>
+				<input type="radio" name="genero" id="masc" value="masc" />
+				<label for="other">Outro</label>
+				<input type="radio" name="genero" id="other" value="outro" />
+				
+				</fieldset>
+				<fieldset>
+				<legend>selecione os cursos desejados</legend>
+				<label for="html">HTML</label>
+				<input type="checkbox" Name="curso" id="html" value="html" />
+				<label for="logica">Lógica de programação</label>
+				<input type="checkbox" name="curso" id="logica" value="logica" />
+				
+				</fieldset>
+				
+				<label for="horaaula">Qual  o horário da sua Aula </label>
+				<input id="horaaula" type="time" name="horaaula" min="07:00" max="21:00" />
+				
+				<label for="formgraduacao">Mês e ano  de formação na sua graduação</label>
+				<input type="month" name="formgraduacao" id="formgraduacao" required />
+				
+				<label for="notaenad"> Informe sua nota no ENAD </label>
+				<input type="number" id="notaenad" name="notaenad" min="0" max="10" />
+				
+				<div><input type="submit" value="mandar" /></div>
+				<div><input type="reset" value="limpar" /></div>
+			
+			</form>
+			<!-- ------------------------------------------------------------------------------------------------------ -->
+			<h2 id="Adados"> Elementos para seleção de dados </h2>
+
+			<form>
+			<h3> Select/combobox nativo </h3>
+			<label for="regiao"> Região da capital  de São Paulo</label>
+
+			<select id="regiao" name="regiao" required>
+
+				<option value="">Selecione</option>
+
+				<option value="centro">Centro</option>
+
+				<option value="leste">Leste</option>
+
+				<option value="norte">Norte</option>
+
+				<option value="oeste">Oeste</option>
+
+				<option value="sul">Sul</option>
+
+			</select>
+
+			<h3> Select editável customizado com autocomplete </h3>
+			<p> Este é um select editável ou de autopesquisa. Como não temos javascript para manipular o componente, iremos duplica-lo, um sendo mostrado como recolhido e outro expandido com  o listbox exibindo as opções.</p>
+			<p> Select fechado.</p>
+			<label for="customclosed"> Animais da floresta </label>
+			<input 	autocomplete="list" type="text" role="combobox" aria-expanded="false" id="customclosed"
+			aria-autocomplete="list" aria-owns="owned_listbox" aria-activedescendant="aniop2">
+
+			<p> Agora o Select aberto com a lista em exibição:</p>
+			<label for="customopen"> Animais da floresta </label>
+			<input 	autocomplete="list" type="text" role="combobox" aria-expanded="true" id="customopen"
+			aria-autocomplete="list" aria-owns="owned_listbox" aria-activedescendant="aniop2">
+			<ul aria-expanded="true" role="listbox" id="owned_listbox">
+			<li role="option">Zebra</li>
+			<li role="option" id="aniop2">Gambá</li>
+			<li role="option">Hipopótamo</li>
+			<li role="option">Raposa</li>
+			</ul>
+
+			<p> Um select com uma opção já pre-selecionada na lista (contém bug).</p>
+			<label for="cb1-edit">  Países autorizados  </label>
+			<input type="text" aria-activedescendant="cb1-opt6" 
+			aria-owns="cb1-list" role="combobox" id="cb1-edit">
+			<ul aria-expanded="true" role="listbox" id="cb1-list">
+				<li role="option" id="cb1-opt1">Alabama</li>
+				<li role="option" id="cb1-opt2">Alaska</li>
+				<li role="option" id="cb1-opt3">American Samoa</li>
+				<li role="option" id="cb1-opt4">Arizona</li>
+				<li role="option" id="cb1-opt5">Arkansas</li>
+				<li role="option" id="cb1-opt6">California</li>
+				<li role="option" id="cb1-opt7">Colorado</li>
+			</ul>
+
+			<h3> Botões de rádio / radiobutton </h3>
+
+				<fieldset>
+				<legend>Qual doce você prefere:</legend>
+
+				<label for="brigadeiro2">Brigadeiro</label>
+				<input id="brigadeiro2" type="radio" name="doce" value="brigadeiro" />
+				
+				<label for="beijinho2">Beijinho</label>
+				<input id="beijinho2" type="radio" name="doce" value="beijinho" />
+
+				<label for="bichodepe2">Bicho-de-Pé</label>
+				<input id="bichodepe2" type="radio" name="doce" value="bichodepe" />
+				</fieldset>
+
+			<h3> Grupo com vários elementos de checkbox </h3>
+
+			<fieldset>
+
+				<legend>Escolha as frutas preferidas</legend>
+				<input id="pera" type="checkbox" name="frutas[]" value="pera">
+				<label for="pera">Pêra</label>
+
+				<input id="maca" type="checkbox" name="frutas[]" value="maca">
+				<label for="maca">Maçã</label>
+
+				<input id="manga" type="checkbox" name="frutas[]" value="manga">
+				<label for="manga">Manga</label>
+
+				<input id="uva" type="checkbox" name="frutas[]" value="uva">
+				<label for="uva">Uva</label>
+
+				<input id="pitaya" type="checkbox" name="frutas[]" value="pitaya">
+				<label for="pitaya">Pitaya</label>
+
+			</fieldset>
+
+			<div><input type="submit" value="mandar" /></div>
+			<div><input type="reset" value="limpar" /></div>
+
+			</form>
+			<!-- ------------------------------------------------------------------------------------------------------ -->		
+			<h2 id="Acontainers"> Containers do HTML </h2>
+			<p> Aqui iremos apresentar os principais containers utilizados na construção de estruturas e de formatação de textos. O intuito é validar os comportamentos em navegação com as diversas tecnologias assistivas nas plataformas, incluindo a experiência por swipe nas interfaces Touchscreen. </p>
+			<h3> Divs </h3>
+			<div> Esta é a primeira div </div>
+			<div> Esta é a segunda div </div>
+			<div> Esta é a terceira div </div>
+
+			<h3> Parágrafo </h3>
+			<p> Este é o primeiro parágrafo da seção. </p>
+			<p> Este é o segundo parágrafo da seção. </p>
+			<p> Este é o terceiro parágrafo da seção. </p>
+					
+			<h3> Span </h3>
+			<span>Esta é a informação dentro da primeira span.</span>
+			<span>Esta é a informação dentro da segunda span.</span>
+			<span>Esta é a informação dentro da terceira span.</span>
+
+			<h3> Regiões </h3>
+			<p> Apresentaremos duas div's com a role="region", uma nomeada por uma aria-label e outra não. </p>
+			<div role="region" aria-label="teste de regiões em uma página">
+				<p> Este é o primeiro parágrafo da primeira Região. </p>
+				<p> Este é o segundo parágrafo da primeira Região. </p>
+				<p> Este é o terceiro parágrafo da primeira Região. </p>
+			</div>
+
+			<div role="region">
+				<p> Este é o primeiro parágrafo da Segunda região. </p>
+				<p> Este é o segundo parágrafo da segunda Região. </p>
+				<p> Este é o terceiro parágrafo da segunda Região. </p>
+			</div>
+				
+			<h3> Seções </h3>
+			Veja abaixo uma seção com 3 parágrafos (tag section). </p>
+			<section aria-label="teste de seção">
+				<p> Este é o primeiro parágrafo da seção. </p>
+				<p> Este é o segundo parágrafo da seção. </p>
+				<p> Este é o terceiro parágrafo da seção. </p>
+			</section>
+
+			<h3> Níveis de título </h3>
+			<p> Abaixo apresentamos todos os níveis de título do HTML. Incluiremos o nível 7 apenas para validar o comportamentos das tecnologias assistivas neste cenário inexistente. </p>
+			<h1> Este é um título de nível 1 </h1>
+			<h2> Este é um título de nível 2 </h2>
+			<h3> Este é um título de nível 3 </h3>
+			<h4> Este é um título de nível 4 </h4>
+			<h5> Este é um título de nível 5 </h5>
+			<h6> Este é um título de nível 6 </h6>
+			<h7> Este é um título de nível 7 (inexistente, apenas para teste) </h7>
+
+			<h3> Abreviaturas com tag ABBR</h3>
+			<p>Usamos <abbr title="Hypertext Markup Language">HTML</abbr> para estruturar nossos documentos da web.</p>
+
+			<h3> Bloco de citação - blockquote </h3>
+			<blockquote cite="/en-US/docs/Web/HTML/Element/blockquote">
+			<p> Estas pesquisas estão sendo realizadas através do site da Web MDN da Mozilla. </p>
+			</blockquote>
+
+			<h3> Marcação de data e hora </h3>
+			<p> Podemos marcar nas tags html o tempo e horário para uma leitura automatizada utilizando a tag time. </p>
+			<p> exemplo 1 com data dia, mês e ano:
+			<time datetime="2016-01-20">20 de janeiro de 2016</time></p>
+			<p> exemplo 2 com data mês e ano:
+			<time datetime="2016-01">Janeiro de 2016</time></p>
+			<p> exemplo 3 com Horário hora e minuto:
+			<time datetime="19:30">19 horas e 30 minutos</time></p>
+
+			<!-- ------------------------------------------------------------------------------------------------------ -->
+			<h2 id="Alistas"> Listas HTML </h2>
+			<p> Confira os 3 tipos de lista aceitas dentro da estruturação HTML. </p>
+			<h3> Lista não-ordenada </h3>
+			<ul>
+				<li>Banana</li>
+				<li>Morango</li>
+				<li>Limão</li>
+			</ul>
+			<h3> Lista ordenada </h3>
+			<ol>
+				<li>Primeiro passo  - dados da empresa </li>
+				<li>Segundo passo - dados do departamento </li>
+				<li>Terceiro passo - revisão de todos os dados </li>
+				<li>Quarto  passo - tela de resultados </li>
+			</ol>
+			<h3> Lista de definição </h3>
+			<dl>
+				<dt>Firefox</dt>
+				<dd>Um navegador gratuito, de código aberto, multiplataforma
+				desenvolvido pela Mozilla Corporation e centenas de voluntários.</dd>
+				<dt>Chrome</dt>
+				<dd>O Google Chrome é um navegador de internet desenvolvido pela Google. Foi lançado pela primeira vez em		
+				setembro de 2008</dd>
+				<dt>Brave</dt>
+				<dd>Brave é um navegador web livre e de código aberto desenvolvido pela Brave Software Inc., e baseado no
+				navegador web Chromium. O navegador bloqueia anúncios e rastreadores de sites.</dd>
+			</dl>
+							
+			<!-- ------------------------------------------------------------------------------------------------------ -->	
+			<h2 id="Atabelas"> Uso de Tabelas </h2>
+			<p> Confira os vários modelos de tabelas aceitas dentro da estruturação HTML, incluindo legenda, cabeçalhos de linhas/coluna, células mescladas, etc.. </p>
+			<h3> Tabela simples</h3>
+				<table>
+					<thead>
+					<tr>
+						<th scope="col">Nome</th>
+						<th scope="col">Função</th>
+						<th scope="col">Modelo de Notebook</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th scope="row">Marco Telles</th>
+						<td>Coordenador</td>
+						<td>HP Probook</td>
+					</tr>
+					<tr>
+						<th scope="row">Joana Silva</th>
+						<td>Team Lead</td>
+						<td>Dell Latitude</td>
+					</tr>
+					<tr>
+						<th scope="row">Leopoldo Nogueira</th>
+						<td>PO</td>
+						<td>Lenovo Thinkpad</td>
+					</tr>
+					<tr>
+						<th scope="row">Pedro Santos</th>
+						<td>Designer</td>
+						<td>Dell XPS</td>
+					</tr>
+					</tbody>
+				</table>
+			<hr>             
+			<h3> Tabela com caption/legenda </h3>
+				<table>
+					<caption>Profissionais</caption>
+					<thead>
+					<tr>
+						<th scope="col">Nome</th>
+						<th scope="col">Função</th>
+						<th scope="col">Modelo de Notebook</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th scope="row">Marco Telles</th>
+						<td>Coordenador</td>
+						<td>HP Probook</td>
+					</tr>
+					<tr>
+						<th scope="row">Joana Silva</th>
+						<td>Team Lead</td>
+						<td>Dell Latitude</td>
+					</tr>
+					<tr>
+						<th scope="row">Leopoldo Nogueira</th>
+						<td>PO</td>
+						<td>Lenovo Thinkpad</td>
+					</tr>
+					<tr>
+						<th scope="row">Pedro Santos</th>
+						<td>Designer</td>
+						<td>Dell XPS</td>
+					</tr>
+					</tbody>
+				</table>
+			<hr>             
+
+			<h3>Tabela com mescla de células</h3>
+			<p> Esta tabela dos cursos possui linhas e colunas mescladas no cabeçalho </p>
+
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">Nome  do curso</th>
+						<th scope="col" colspan="2">Setembro</th>
+						<th scope="col" colspan="2">Outubro</th>
+						<th rowspan="2" scope="col">Coordenador</th>
+					</tr>
+					<tr>
+					<TH></th>
+					<th> Dia </th>
+					<th> Horário </th>
+					<th> Dia </th>
+					<th> Horário </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<TH scope="row"> Introdução a administração de negócios </th><td>01</td><td>08:00</td><td>01</td><td>09:00</td><td>Alberto Rodrigues</td>
+					</tr>
+
+					<tr>
+						<TH scope="row"> Gestão financeira </th><td>10</td><td>08:00</td><td>10</td><td>09:00</td><td>Sérgio Santos  Rodrigues</td>
+					</tr>
+
+					<tr>
+						<TH scope="row"> Fundamentos de economia </th><td>20</td><td>14:00</td><td>18</td><td>12:00</td><td>Marcos Santos Almeida</td>
+					</tr>
+
+				</tbody>
+			</table>	
+			<!-- ------------------------------------------------------------------------------------------------------ -->	
+			<h2 id="Aguiasemenus"> Guia/abas e menus customizados </h2>
+
+			<h3> guias ou abas </h3>
+				<div class="tab-interface">
+					<div role="tablist" aria-label="Exemplo de componentes de abas">
+						<span role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1"	tabindex="0">
+						Primeira aba
+						</span>
+						<span role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">
+						Segunda aba
+						</span>
+						<span role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">
+						Terceira aba
+						</span>
+					</div>
+					<div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+						<p>Conteúdo  da primeira aba ou guia está carregado nesta região ou painel</p>
+						<p>Aqui é o segundo parágrafo do conteúdo deste mesmo painel</p>
+						<p> agora finaliza o conteúdo da primeira aba, no próximo swipe ou navegação já não estaremos mais no conteúdo carregado pela aba selecionada.</p>
+						<a href=""> saiba mais sobre este componente </a>
+					</div>
+				</div>
+			<h3> Menu simples aberto por um botão (  já expandido) </h3>
+			<div>
+				<button id="menubutton" aria-haspopup="true" aria-controls="menu" aria-label="seções da página">
+					<img src="hamburger.svg" alt="" />
+				</button>
+				<div id="menu" role="menu" aria-labelledby="menubutton">
+					<div>
+						<a role="menuitem" href="#description"> Descrições </a>
+					</div>
+					<div role="presentation">
+						<a role="menuitem" href="#associated_wai-aria_roles_states_and_properties">
+							Associated WAI-ARIA roles, states, and properties
+						</a>
+					</div>
+					<div role="presentation">
+						<a role="menuitem" href="#keyboard_interactions"> Interações de teclado </a>
+					</div>
+					<div role="presentation">
+						<a role="menuitem" href="#examples"> Exemplos </a>
+					</div>
+					<div role="presentation">
+						<a role="menuitem" href="#specifications"> especificações </a>
+					</div>
+					<div role="presentation">
+						<a role="menuitem" href="#see_also"> Confira mais opções </a>
+					</div>
+				</div>
+			</div>
+			<h3> menu checkbox </h3>
+
+			<div role="menu">
+				<div role="radiogroup">
+					<div tabindex="0" role="menuitemcheckbox"><span>salvar no rascunho de e-mails </span></div>
+					<div tabindex="-1" aria-checked="true" role="menuitemcheckbox"><h6 role="presentation">Name of my checkbox</h6></div>
+				</div>
+			</div>
+
+			<h3> menu radio button </h3>
+
+			<div><input type="submit" value="mandar" /></div>
+			<div><input type="reset" value="limpar" /></div>
+
+			</form>
+			<!-- ------------------------------------------------------------------------------------------------------ -->	
+			<h2 id="Aimagens"> Imagens e conteúdos em mídia </h2>
+			<h3> Imagens </h3>
+			<p> Imagem simples:</p>
+			<img src="hamburger.svg" alt="Teste de uma imagem em SVG" />
+			<!-- Apenas uma imagem -->
+			<figure>
+				<img src="favicon-192x192.png" alt="O lindo logotipo do MDN." />
+			</figure>
+			<p> Agora veja uma imagem com legenda </p>
+			<!-- Imagem com legenda -->
+			<figure>
+				<img src="favicon-192x192.png" alt="O lindo logotipo do MDN." />
+				<figcaption>Logotipo MDN</figcaption>
+			</figure>
+
+			
+			<h2>Lista não ordenada</h2>
+			<ul>
+				<li>Amora</li>
+				<li>Banana</li>
+				<li>Cereja</li>
+			</ul>  
+
+			<h2>Lista ordenada</h2>
+			<ol>
+				<li>Amora</li>
+				<li>Banana</li>
+				<li>Cereja</li>
+			</ol>  
+
+			<h2>Lista de descrição</h2>
+			<dl>
+				<dt>Amora</dt>
+				<dd>efeitos antioxidantes e anti-inflamatórios.</dd>
+				<dt>Banana</dt>
+				<dd>reduz a pressão arterial e evita cãibras musculares.</dd>
+				<dt>Cereja</dt>
+				<dd>ajuda a combater a depressão e a insônia.</dd>
+			</dl>		
+
+			<h2>Tabela</h2>
+
+			<table>
+				<tr>
+				<th>Fruta</th>
+				<th>Vitaminas</th>
+				<th>Benefícios</th>
+				</tr>
+				<tr>
+				<td>Amora</td>
+				<td>A , C e K</td>
+				<td>antioxidantes e anti-inflamatórios</td>
+				</tr>
+				<tr>
+				<td>Banana</td>
+				<td>A, B e C</td>
+				<td>reduz a pressão e evita cãibras</td>
+				</tr>
+				<tr>
+				<td>Cereja</td>
+				<td>A e C</td>
+				<td>combate a depressão e a insônia</td>
+				</tr>
+			</table>
+
+			<h2>Input Text</h2>
+
+			<form>
+				<label for="fruta1">Digite uma fruta: (input text)</label>
+				<br>
+				<input type="text" id="fruta1" name="fruta1">
+				<br>
+				<label for="numero1">Digite um número: (input number)</label>
+				<br>
+				<input type="number" id="numero1" name="numero1">
+				<br>
+				<label for="tel1">Digite um telefone: (input tel)</label>
+				<br>
+				<input type="tel" id="tel1" name="tel1">
+				<br>
+				<label for="email1">Digite um email: (input e-mail)</label>
+				<br>
+				<input type="email" id="email1" name="email1">
+				<br>
+				<label for="data1">Digite uma data: (input date)</label>
+				<br>
+				<input type="date" id="data1" name="data1">
+				<br>
+				<label for="color1">Escolha uma cor: (input color)</label>
+				<br>
+				<input type="color" id="color1" name="color1">
+			</form>
+
+			<h2>Input Textarea</h2>
+			<form>
+				<p><label for="areafruta">Qual sua fruta favorita?</label></p>
+				<textarea id="fruta" name="areafruta" rows="4" cols="50" placeholder="Escreva aqui sua fruta favorita!"></textarea>
+				<br>
+				<input type="submit" value="Enviar">
+			</form>
+
+			<h2>Radio-Button</h2>
+			<form>
+				<fieldset>
+					<legend>Escolha sua fruta favorita:</legend>
+					<input type="radio" id="amora" name="fav_fruta" value="amora">
+					<label for="amora">Amora</label><br>
+					<input type="radio" id="banana" name="fav_fruta" value="banana">
+					<label for="banana">Banana</label><br>
+					<input type="radio" id="cereja" name="fav_fruta" value="cereja">
+					<label for="cereja">Cereja</label>
+				</fieldset>
+				<fieldset>
+					<legend>Escolha seu vegetal favorito:</legend>
+					<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
+					<label for="abobrinha">Abobrinha</label><br>
+					<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
+					<label for="berinjela">Berinjela</label><br>  
+					<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
+					<label for="chuchu">Chuchu</label><br>
+				</fieldset>
+				<input type="submit" value="Enviar">
+			</form>
+			<h2>Checkbox</h2>
+			<form>
+				<p>Escolha suas frutas favoritas:</p>
+				<input type="checkbox" id="checkfruta1" name="amora" value="amora">
+				<label for="checkfruta1"> Eu gosto de amora.</label><br>
+				<input type="checkbox" id="checkfruta2" name="banana" value="banana">
+				<label for="checkfruta2"> Eu gosto de banana.</label><br>
+				<input type="checkbox" id="checkfruta3" name="cereja" value="cereja">
+				<label for="checkfruta3"> Eu gosto de cereja.</label><br>
+				<input type="submit" value="Enviar">
+			</form>
+
+			<h2>Aria-Live</h2>
+			<p>Aria-Live: <span id="result1" aria-live="assertive">contagem 0</span></p>
+			<div>
+				<button onclick="update1();">Contar</button>
+			</div>
+		</main>
+
+		<footer>
+			<p>Obrigado pela visita!</p>
+		</footer>
+
+	</body>
+
+	<script>
+		var contagem = 0;
+		function update1() {
+			contagem++;
+			result = "contagem " + contagem;
+			document.getElementById("result1").innerHTML=result;
+		}
+	</script>
+
+</html>
