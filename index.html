@@ -3,7 +3,6 @@
 
 	<head>
 		<meta charset="UTF-8">
-
 		<title>Componentes para tecnologias assistivas</title>
 		<style>
 			html, body{
@@ -38,7 +37,7 @@
 			}
 			input, fieldset, textarea, select {
 				width: 300px;
-				margin-bottom: 10px;
+				margin: 5px;
 			}
 			fieldset > input {
 				width: auto;
@@ -53,6 +52,7 @@
 			.conteudo{
 				margin: 30px;
 			}
+
 			table {
 			  font-family: arial, sans-serif;
 			  border-collapse: collapse;
@@ -227,6 +227,7 @@
 				<label for="datanasc">Data de nascimento: (input data)</label>
 				<input type="date" name="datanasc" id="datanasc" autocomplete="bday" required />
 
+
 				<label for="periodo">Período do curso</label>
 				<select name="periodo" id="periodo" required>
 				<option value="">Selecione</option>
@@ -350,6 +351,7 @@
 					<label for="berinjela">Berinjela</label><br>  
 					<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
 					<label for="chuchu">Chuchu</label><br>
+
 				</fieldset>
 
 			<h3> Grupo com vários elementos de checkbox </h3>
@@ -382,6 +384,7 @@
 			<!-- ------------------------------------------------------------------------------------------------------ -->		
 			<h2 id="Acontainers" class="titulo"> Containers do HTML </h2>
 			<div class="conteudo">
+
 			<p> Aqui iremos apresentar os principais containers utilizados na construção de estruturas e de formatação de textos. O intuito é validar os comportamentos em navegação com as diversas tecnologias assistivas nas plataformas, incluindo a experiência por swipe nas interfaces Touchscreen. </p>
 			<h3> Divs </h3>
 			<div> Esta é a primeira div </div>
@@ -425,6 +428,7 @@
 			<h1> Este é um título de nível 1 </h1>
 			<h2> Este é um título de nível 2 </h2>
 			<h3 class="h3x"> Este é um título de nível 3 </h3>
+
 			<h4> Este é um título de nível 4 </h4>
 			<h5> Este é um título de nível 5 </h5>
 			<h6> Este é um título de nível 6 </h6>
@@ -446,11 +450,13 @@
 			<time datetime="2016-01">Janeiro de 2016</time></p>
 			<p> exemplo 3 com Horário hora e minuto:
 			<time datetime="19:30">19 horas e 30 minutos</time></p>
+
 			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
 			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->
 			<h2 id="Alistas" class="titulo"> Listas HTML </h2>
 			<div class="conteudo">
+
 			<p> Confira os 3 tipos de lista aceitas dentro da estruturação HTML. </p>
 			<h3> Lista não-ordenada </h3>
 			<ul>
@@ -482,6 +488,7 @@
 			<!-- ------------------------------------------------------------------------------------------------------ -->	
 			<h2 id="Atabelas" class="titulo"> Uso de Tabelas </h2>
 			<div class="conteudo">
+
 			<p> Confira os vários modelos de tabelas aceitas dentro da estruturação HTML, incluindo legenda, cabeçalhos de linhas/coluna, células mescladas, etc.. </p>
 			<h3> Tabela simples</h3>
 				<table>
@@ -626,6 +633,7 @@
 				</div>
 			</div>
 
+
 			<h3> menu checkbox </h3>
 
 			<div role="menu">
@@ -641,6 +649,7 @@
 			<div><input type="reset" value="limpar" /></div>
 
 			</form>
+
 			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
 			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->	
@@ -652,6 +661,7 @@
 			<!-- Apenas uma imagem -->
 			<figure>
 				<img src="a11y.png" alt="Logo estilizado PCD." />
+
 			</figure>
 			<p> Agora veja uma imagem com legenda </p>
 			<!-- Imagem com legenda -->
@@ -665,6 +675,7 @@
 			<h2 id="Awaiaria" class="titulo">Wai-Aria</h2>
 			<div class="conteudo">
 			<h3>Aria-Live</h3>
+
 			<p>Aria-Live: <span id="result1" aria-live="assertive">contagem 0</span></p>
 			<div>
 				<button onclick="update1();">Contar</button>
@@ -673,6 +684,7 @@
 			</div>
 		</main>
 			<!-- ------------------------------------------------------------------------------------------------------ -->
+
 		<footer>
 			<p>Obrigado pela visita!</p>
 		</footer>
@@ -680,7 +692,6 @@
 	</body>
 
 	<script>
-
 		//=====MENU dropdown=====
 
 		// Quando o usuário clica no botão, alternar entre ocultar e mostrar o conteúdo suspenso.
