@@ -3,8 +3,56 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Componentes para tecnologias assistivas - Components4TA</title>
+
+		<title>Componentes para tecnologias assistivas</title>
 		<style>
+			html, body{
+				margin:0;
+			}
+			h1,h2 {
+				background: black;
+				color: white;
+				padding: 10px;
+				margin: 0;
+			}
+			h3 {
+				background: rgb(194, 194, 194);
+				color: black;
+				padding: 5px;
+				margin: 20px 10px 5px -20px;
+				border-radius: 5px;
+			}
+
+			.conteudo h1, .conteudo h2, .h3x{
+				background: rgba(255, 255, 255, 0);
+				color: black;
+				padding: 0;
+				margin: 21px 0px 21px 0;
+				border-radius: 0;
+			}
+
+			form{
+				display: flex;
+				flex-direction: column;
+				padding-bottom: 10px;
+			}
+			input, fieldset, textarea, select {
+				width: 300px;
+				margin-bottom: 10px;
+			}
+			fieldset > input {
+				width: auto;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+			}
+			figure{
+				margin: 0;
+			}
+			.conteudo{
+				margin: 30px;
+			}
 			table {
 			  font-family: arial, sans-serif;
 			  border-collapse: collapse;
@@ -21,7 +69,6 @@
 			  background-color: #dddddd;
 			}
 
-
 			dt {
 			font-weight: bold;
 			padding-left: 30px;
@@ -31,17 +78,103 @@
 			padding-left: 30px;
 			}
 			
+			.lvoltar , .lvoltar:active, .lvoltar:visited{
+				text-decoration: none;
+				background: #00a6ed;
+				color: white;
+				border: 1px solid gray;
+				border-radius: 10px;
+				font-weight: bolder;
+				padding: 10px;
+			}
+			.dropbtn {
+			background: #3498DB;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+			}
+
+			.dropbtn:hover, .dropbtn:focus {
+			background-color: #2980B9;
+			}
+
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			}
+
+			.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+			}
+
+			.dropdown a:hover {background-color: #ddd;}
+
+			.show {display: block;}
+
+			/* Style the tab */
+			.tab {
+			overflow: hidden;
+			border: 1px solid #ccc;
+			background-color: #f1f1f1;
+			}
+
+			/* Style the buttons inside the tab */
+			.tab .tablinks {
+			background-color: inherit;
+			float: left;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			padding: 14px 16px;
+			transition: 0.3s;
+			font-size: 17px;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab .tablinks:hover {
+			background-color: #ddd;
+			}
+
+			/* Create an active/current tablink class */
+			.tab .tablinks.active {
+			background-color: #ccc;
+			}
+
+			/* Style the tab content */
+			.tabcontent {
+			display: none;
+			padding: 6px 12px;
+			border: 1px solid #ccc;
+			border-top: none;
+			}
+			#erro_tab{
+				color: red;
+			}
 
 		</style>
 	</head>
 
 	<body>
 		<header>
-			<a href="#conteudo">Ir para o conteúdo</a>
-			<a href="index.html">Ir para a página inicial</a>
-			<h1> Componentes para teste com tecnologias assistivas</h1>
+			<h1 id="a11y" class="titulo"> Componentes para teste com tecnologias assistivas</h1>
 		</header>
 		<main>
+			<div class="conteudo">
 			<p>Nesta página estão alguns elementos para realização de testes.</p>
 			<p>Os forms não irão funcionar pois a proposta aqui é validar apenas o frontend.</p>
 			<p>Escolha o tipo de componente na lista abaixo a ser verificado com a sua tecnologia assistiva</p>
@@ -67,28 +200,33 @@
 				<li>
 					<a href="#Aimagens"> Imagens e conteúdos em mídia </a>
 				</li>
+				<li>
+					<a href="#Awaiaria"> Wai-Aria </a>
+				</li>
 			</ul>
+			</div>
 		<!-- ------------------------------------------------------------------------------------------------------ -->
-			<h2 id="Aformularios"> formulários </h2>
-			<form>
-				<label for="nome">Nome completo</label>
-				<input type="text" name="nome" id="nome" required placeholder="Zé Ninguém" autocomplete="name" />
+			<h2 id="Aformularios" class="titulo"> Formulários </h2>
+			<div class="conteudo">
+			<form class="backend">
+				<label for="nome">Nome completo: (input texto)</label>
+				<input type="text" name="nome" id="nome" required placeholder="Edson Arantes do nascimento" autocomplete="name" />
 				
-				<label for="nomesocial">Nome Social</label>
-				<input type="text" name="nomesocial" id="nomesocial" placeholder="Zezinho" autocomplete="name" />
+				<label for="nomesocial">Nome Social: (input texto)</label>
+				<input type="text" name="nomesocial" id="nomesocial" autocomplete="nsocial" />
 				
-				<label for="apelido">Apelido</label>
-				<input type="text" name="apelido" id="apelido" />
+				<label for="apelido">Apelido: (input text)</label>
+				<input type="text" name="apelido" id="apelido" placeholder="Pelé" autocomplete="Pelé" />
 				
-				<label for="mailing">E-mail</label>
-				<input type="email" name="email" id="mailing" required placeholder="paulo@adeva.org.br" autocomplete="mail" />
+				<label for="mailing">E-mail: (input email)</label>
+				<input type="email" name="email" id="mailing" required placeholder="edson@gmail.br" autocomplete="email" />
 				
-				<label for="celu">Telefone móvel (Celular)</label>
-				<input type="tel" name="celu" id="celu" required autocomplete="tel" />
+				<label for="celu">Celular: (input tel)</label>
+				<input type="tel" name="celu" id="celu" autocomplete="celular" placeholder="11 98766543" required   />
 				
-				<label for="datanasc">Data de nascimento</label>
-				<input type="date" name="datanasc" id="datanasc" required />
-				
+				<label for="datanasc">Data de nascimento: (input data)</label>
+				<input type="date" name="datanasc" id="datanasc" autocomplete="bday" required />
+
 				<label for="periodo">Período do curso</label>
 				<select name="periodo" id="periodo" required>
 				<option value="">Selecione</option>
@@ -97,43 +235,49 @@
 				<option value="n">Noite</option>
 				</select>
 				
-				<fieldset>
-				<legend>gênero</legend>
-				<label for="fem">Feminino</label>
-				<input type="radio" name="genero" id="fem" value="fem" />
-				<label for="masc">Masculino</label>
-				<input type="radio" name="genero" id="masc" value="masc" />
-				<label for="other">Outro</label>
-				<input type="radio" name="genero" id="other" value="outro" />
-				
-				</fieldset>
-				<fieldset>
-				<legend>selecione os cursos desejados</legend>
-				<label for="html">HTML</label>
-				<input type="checkbox" Name="curso" id="html" value="html" />
-				<label for="logica">Lógica de programação</label>
-				<input type="checkbox" name="curso" id="logica" value="logica" />
-				
-				</fieldset>
-				
-				<label for="horaaula">Qual  o horário da sua Aula </label>
+				<label for="horaaula">Qual  o horário da sua Aula: (input time) </label>
 				<input id="horaaula" type="time" name="horaaula" min="07:00" max="21:00" />
 				
-				<label for="formgraduacao">Mês e ano  de formação na sua graduação</label>
+				<label for="formgraduacao">Mês e ano  de formação na sua graduação: (input month)</label>
 				<input type="month" name="formgraduacao" id="formgraduacao" required />
 				
-				<label for="notaenad"> Informe sua nota no ENAD </label>
+				<label for="notaenad"> Informe sua nota no ENAD: (input number)</label>
 				<input type="number" id="notaenad" name="notaenad" min="0" max="10" />
 				
+				<label for="color1">Escolha uma cor: (input color)</label>
+				<input type="color" id="color1" name="color1">
+
+				<label for="textarea1">Fale sobre você: (input textarea)</label>
+				<textarea id="textarea1" name="textarea1" rows="3" cols="50" placeholder="Escreva aqui sua biografia!"></textarea>
+
+				<fieldset>
+					<legend>gênero</legend>
+					<label for="fem">Feminino</label>
+					<input type="radio" name="genero" id="fem" value="fem" />
+					<label for="masc">Masculino</label>
+					<input type="radio" name="genero" id="masc" value="masc" />
+					<label for="other">Outro</label>
+					<input type="radio" name="genero" id="other" value="outro" />
+				</fieldset>
+				<fieldset>
+					<legend>selecione os cursos desejados</legend>
+					<label for="html">HTML</label>
+					<input type="checkbox" Name="curso" id="html" value="html" />
+					<label for="logica">Lógica de programação</label>
+					<input type="checkbox" name="curso" id="logica" value="logica" />
+				</fieldset>
+
 				<div><input type="submit" value="mandar" /></div>
 				<div><input type="reset" value="limpar" /></div>
-			
-			</form>
-			<!-- ------------------------------------------------------------------------------------------------------ -->
-			<h2 id="Adados"> Elementos para seleção de dados </h2>
 
-			<form>
-			<h3> Select/combobox nativo </h3>
+			</form>
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
+			<!-- ------------------------------------------------------------------------------------------------------ -->
+			<h2 id="Adados" class="titulo"> Elementos para seleção de dados </h2>
+			<div class="conteudo">
+			<form class="backend">
+			<h3 class="sub-titulo"> Select/combobox nativo </h3>
 			<label for="regiao"> Região da capital  de São Paulo</label>
 
 			<select id="regiao" name="regiao" required>
@@ -187,22 +331,30 @@
 			<h3> Botões de rádio / radiobutton </h3>
 
 				<fieldset>
-				<legend>Qual doce você prefere:</legend>
+					<legend>Escolha sua fruta favorita:</legend>
+					<input type="radio" id="amora" name="fav_fruta" value="amora">
+					<label for="amora">Amora</label><br>
+					<input type="radio" id="banana" name="fav_fruta" value="banana">
+					<label for="banana">Banana</label><br>
+					<input type="radio" id="cereja" name="fav_fruta" value="cereja">
+					<label for="cereja">Cereja</label><br>
+					<input type="radio" id="pitayaradio" name="fav_fruta" value="pitayaradio">
+					<label for="pitayaradio">Pitaya</label>
+				</fieldset>
 
-				<label for="brigadeiro2">Brigadeiro</label>
-				<input id="brigadeiro2" type="radio" name="doce" value="brigadeiro" />
-				
-				<label for="beijinho2">Beijinho</label>
-				<input id="beijinho2" type="radio" name="doce" value="beijinho" />
-
-				<label for="bichodepe2">Bicho-de-Pé</label>
-				<input id="bichodepe2" type="radio" name="doce" value="bichodepe" />
+				<fieldset>
+					<legend>Escolha seu vegetal favorito:</legend>
+					<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
+					<label for="abobrinha">Abobrinha</label><br>
+					<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
+					<label for="berinjela">Berinjela</label><br>  
+					<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
+					<label for="chuchu">Chuchu</label><br>
 				</fieldset>
 
 			<h3> Grupo com vários elementos de checkbox </h3>
 
 			<fieldset>
-
 				<legend>Escolha as frutas preferidas</legend>
 				<input id="pera" type="checkbox" name="frutas[]" value="pera">
 				<label for="pera">Pêra</label>
@@ -225,8 +377,11 @@
 			<div><input type="reset" value="limpar" /></div>
 
 			</form>
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->		
-			<h2 id="Acontainers"> Containers do HTML </h2>
+			<h2 id="Acontainers" class="titulo"> Containers do HTML </h2>
+			<div class="conteudo">
 			<p> Aqui iremos apresentar os principais containers utilizados na construção de estruturas e de formatação de textos. O intuito é validar os comportamentos em navegação com as diversas tecnologias assistivas nas plataformas, incluindo a experiência por swipe nas interfaces Touchscreen. </p>
 			<h3> Divs </h3>
 			<div> Esta é a primeira div </div>
@@ -269,7 +424,7 @@
 			<p> Abaixo apresentamos todos os níveis de título do HTML. Incluiremos o nível 7 apenas para validar o comportamentos das tecnologias assistivas neste cenário inexistente. </p>
 			<h1> Este é um título de nível 1 </h1>
 			<h2> Este é um título de nível 2 </h2>
-			<h3> Este é um título de nível 3 </h3>
+			<h3 class="h3x"> Este é um título de nível 3 </h3>
 			<h4> Este é um título de nível 4 </h4>
 			<h5> Este é um título de nível 5 </h5>
 			<h6> Este é um título de nível 6 </h6>
@@ -291,9 +446,11 @@
 			<time datetime="2016-01">Janeiro de 2016</time></p>
 			<p> exemplo 3 com Horário hora e minuto:
 			<time datetime="19:30">19 horas e 30 minutos</time></p>
-
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->
-			<h2 id="Alistas"> Listas HTML </h2>
+			<h2 id="Alistas" class="titulo"> Listas HTML </h2>
+			<div class="conteudo">
 			<p> Confira os 3 tipos de lista aceitas dentro da estruturação HTML. </p>
 			<h3> Lista não-ordenada </h3>
 			<ul>
@@ -320,9 +477,11 @@
 				<dd>Brave é um navegador web livre e de código aberto desenvolvido pela Brave Software Inc., e baseado no
 				navegador web Chromium. O navegador bloqueia anúncios e rastreadores de sites.</dd>
 			</dl>
-							
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->	
-			<h2 id="Atabelas"> Uso de Tabelas </h2>
+			<h2 id="Atabelas" class="titulo"> Uso de Tabelas </h2>
+			<div class="conteudo">
 			<p> Confira os vários modelos de tabelas aceitas dentro da estruturação HTML, incluindo legenda, cabeçalhos de linhas/coluna, células mescladas, etc.. </p>
 			<h3> Tabela simples</h3>
 				<table>
@@ -426,57 +585,47 @@
 
 				</tbody>
 			</table>	
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->	
-			<h2 id="Aguiasemenus"> Guia/abas e menus customizados </h2>
-
-			<h3> guias ou abas </h3>
-				<div class="tab-interface">
-					<div role="tablist" aria-label="Exemplo de componentes de abas">
-						<span role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1"	tabindex="0">
-						Primeira aba
-						</span>
-						<span role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" tabindex="-1">
-						Segunda aba
-						</span>
-						<span role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" tabindex="-1">
-						Terceira aba
-						</span>
-					</div>
-					<div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
-						<p>Conteúdo  da primeira aba ou guia está carregado nesta região ou painel</p>
-						<p>Aqui é o segundo parágrafo do conteúdo deste mesmo painel</p>
-						<p> agora finaliza o conteúdo da primeira aba, no próximo swipe ou navegação já não estaremos mais no conteúdo carregado pela aba selecionada.</p>
-						<a href=""> saiba mais sobre este componente </a>
-					</div>
+			<h2 id="Aguiasemenus" class="titulo"> Guia/abas e menus customizados </h2>
+			<div class="conteudo">
+			<h3> Guias ou abas customizadas </h3>
+			<div id="erro_tab"></div>
+				<!-- --------------Tabs ou Guias Customizado-------------- -->
+				<div class="tab" role="tablist"> 
+					<div id="tab-Londres" class="tablinks active" role="tab" aria-selected="true" aria-controls="Londres"  tabindex="0" onclick="openCity(event, 'Londres')">Londres</div>
+					<div id="tab-Paris" class="tablinks" role="tab" aria-selected="false" aria-controls="Paris" tabindex="-1" onclick="openCity(event, 'Paris')">Paris</div>
+					<div id="tab-Tokyo" class="tablinks" role="tab" aria-selected="false" aria-controls="Tokyo" tabindex="-1" onclick="openCity(event, 'Tokyo')">Tokyo</div>
 				</div>
-			<h3> Menu simples aberto por um botão (  já expandido) </h3>
-			<div>
-				<button id="menubutton" aria-haspopup="true" aria-controls="menu" aria-label="seções da página">
-					<img src="hamburger.svg" alt="" />
-				</button>
-				<div id="menu" role="menu" aria-labelledby="menubutton">
-					<div>
-						<a role="menuitem" href="#description"> Descrições </a>
-					</div>
-					<div role="presentation">
-						<a role="menuitem" href="#associated_wai-aria_roles_states_and_properties">
-							Associated WAI-ARIA roles, states, and properties
-						</a>
-					</div>
-					<div role="presentation">
-						<a role="menuitem" href="#keyboard_interactions"> Interações de teclado </a>
-					</div>
-					<div role="presentation">
-						<a role="menuitem" href="#examples"> Exemplos </a>
-					</div>
-					<div role="presentation">
-						<a role="menuitem" href="#specifications"> especificações </a>
-					</div>
-					<div role="presentation">
-						<a role="menuitem" href="#see_also"> Confira mais opções </a>
-					</div>
+				
+				<div id="Londres" class="tabcontent" role="tabpanel" tabindex="0" aria-labelledby="tab-Londres" style="display: block;">
+					<h4>Londres</h4>
+					<p>Londres é a capital da Inglaterra.</p>
+				</div>
+				
+				<div id="Paris" class="tabcontent" role="tabpanel" tabindex="-1" aria-labelledby="tab-Paris">
+					<h4>Paris</h4>
+					<p>Paris é a capital da França.</p> 
+				</div>
+				
+				<div id="Tokyo" class="tabcontent" role="tabpanel" tabindex="-1" aria-labelledby="tab-Tokyo">
+					<h4>Tokyo</h4>
+					<p>Tokyo é a capital do Japão.</p>
+				</div>
+
+			<!-- --------------dropdown customizado-------------- -->
+			<h3> Menu customizado simples aberto por um botão</h3>
+
+			<div class="dropdown">
+				<button id="custonselect" onclick="showselect()" class="dropbtn" role="menu" aria-expanded="false" aria-controls="myDropdown" >Propriedades</button>
+				<div id="myDropdown" class="dropdown-content" role="menu">
+				  <a role="menuitem" href="#home">Home</a>
+				  <a role="menuitem" href="#about">Sobre</a>
+				  <a role="menuitem" href="#contact">Contato</a>
 				</div>
 			</div>
+
 			<h3> menu checkbox </h3>
 
 			<div role="menu">
@@ -492,149 +641,38 @@
 			<div><input type="reset" value="limpar" /></div>
 
 			</form>
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->	
-			<h2 id="Aimagens"> Imagens e conteúdos em mídia </h2>
+			<h2 id="Aimagens" class="titulo"> Imagens e conteúdos em mídia </h2>
+			<div class="conteudo">
 			<h3> Imagens </h3>
 			<p> Imagem simples:</p>
-			<img src="hamburger.svg" alt="Teste de uma imagem em SVG" />
+			<img src="a11y.webp" alt="Teste de uma imagem webp" />
 			<!-- Apenas uma imagem -->
 			<figure>
-				<img src="favicon-192x192.png" alt="O lindo logotipo do MDN." />
+				<img src="a11y.png" alt="Logo estilizado PCD." />
 			</figure>
 			<p> Agora veja uma imagem com legenda </p>
 			<!-- Imagem com legenda -->
 			<figure>
-				<img src="favicon-192x192.png" alt="O lindo logotipo do MDN." />
-				<figcaption>Logotipo MDN</figcaption>
+				<img src="a11y.png" alt="Logo estilizado PCD." />
+				<figcaption>Logotipo PCD</figcaption>
 			</figure>
-
-			
-			<h2>Lista não ordenada</h2>
-			<ul>
-				<li>Amora</li>
-				<li>Banana</li>
-				<li>Cereja</li>
-			</ul>  
-
-			<h2>Lista ordenada</h2>
-			<ol>
-				<li>Amora</li>
-				<li>Banana</li>
-				<li>Cereja</li>
-			</ol>  
-
-			<h2>Lista de descrição</h2>
-			<dl>
-				<dt>Amora</dt>
-				<dd>efeitos antioxidantes e anti-inflamatórios.</dd>
-				<dt>Banana</dt>
-				<dd>reduz a pressão arterial e evita cãibras musculares.</dd>
-				<dt>Cereja</dt>
-				<dd>ajuda a combater a depressão e a insônia.</dd>
-			</dl>		
-
-			<h2>Tabela</h2>
-
-			<table>
-				<tr>
-				<th>Fruta</th>
-				<th>Vitaminas</th>
-				<th>Benefícios</th>
-				</tr>
-				<tr>
-				<td>Amora</td>
-				<td>A , C e K</td>
-				<td>antioxidantes e anti-inflamatórios</td>
-				</tr>
-				<tr>
-				<td>Banana</td>
-				<td>A, B e C</td>
-				<td>reduz a pressão e evita cãibras</td>
-				</tr>
-				<tr>
-				<td>Cereja</td>
-				<td>A e C</td>
-				<td>combate a depressão e a insônia</td>
-				</tr>
-			</table>
-
-			<h2>Input Text</h2>
-
-			<form>
-				<label for="fruta1">Digite uma fruta: (input text)</label>
-				<br>
-				<input type="text" id="fruta1" name="fruta1">
-				<br>
-				<label for="numero1">Digite um número: (input number)</label>
-				<br>
-				<input type="number" id="numero1" name="numero1">
-				<br>
-				<label for="tel1">Digite um telefone: (input tel)</label>
-				<br>
-				<input type="tel" id="tel1" name="tel1">
-				<br>
-				<label for="email1">Digite um email: (input e-mail)</label>
-				<br>
-				<input type="email" id="email1" name="email1">
-				<br>
-				<label for="data1">Digite uma data: (input date)</label>
-				<br>
-				<input type="date" id="data1" name="data1">
-				<br>
-				<label for="color1">Escolha uma cor: (input color)</label>
-				<br>
-				<input type="color" id="color1" name="color1">
-			</form>
-
-			<h2>Input Textarea</h2>
-			<form>
-				<p><label for="areafruta">Qual sua fruta favorita?</label></p>
-				<textarea id="fruta" name="areafruta" rows="4" cols="50" placeholder="Escreva aqui sua fruta favorita!"></textarea>
-				<br>
-				<input type="submit" value="Enviar">
-			</form>
-
-			<h2>Radio-Button</h2>
-			<form>
-				<fieldset>
-					<legend>Escolha sua fruta favorita:</legend>
-					<input type="radio" id="amora" name="fav_fruta" value="amora">
-					<label for="amora">Amora</label><br>
-					<input type="radio" id="banana" name="fav_fruta" value="banana">
-					<label for="banana">Banana</label><br>
-					<input type="radio" id="cereja" name="fav_fruta" value="cereja">
-					<label for="cereja">Cereja</label>
-				</fieldset>
-				<fieldset>
-					<legend>Escolha seu vegetal favorito:</legend>
-					<input type="radio" id="abobrinha" name="fav_veg" value="abobrinha">
-					<label for="abobrinha">Abobrinha</label><br>
-					<input type="radio" id="berinjela" name="fav_veg" value="berinjela">
-					<label for="berinjela">Berinjela</label><br>  
-					<input type="radio" id="chuchu" name="fav_veg" value="chuchu">
-					<label for="chuchu">Chuchu</label><br>
-				</fieldset>
-				<input type="submit" value="Enviar">
-			</form>
-			<h2>Checkbox</h2>
-			<form>
-				<p>Escolha suas frutas favoritas:</p>
-				<input type="checkbox" id="checkfruta1" name="amora" value="amora">
-				<label for="checkfruta1"> Eu gosto de amora.</label><br>
-				<input type="checkbox" id="checkfruta2" name="banana" value="banana">
-				<label for="checkfruta2"> Eu gosto de banana.</label><br>
-				<input type="checkbox" id="checkfruta3" name="cereja" value="cereja">
-				<label for="checkfruta3"> Eu gosto de cereja.</label><br>
-				<input type="submit" value="Enviar">
-			</form>
-
-			<h2>Aria-Live</h2>
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
+			<!-- ------------------------------------------------------------------------------------------------------ -->
+			<h2 id="Awaiaria" class="titulo">Wai-Aria</h2>
+			<div class="conteudo">
+			<h3>Aria-Live</h3>
 			<p>Aria-Live: <span id="result1" aria-live="assertive">contagem 0</span></p>
 			<div>
 				<button onclick="update1();">Contar</button>
 			</div>
+			<a href="#a11y" aria-label="Voltaro ao início" class="lvoltar">⬆️ Voltar ao início ⬆️</a>
+			</div>
 		</main>
-
+			<!-- ------------------------------------------------------------------------------------------------------ -->
 		<footer>
 			<p>Obrigado pela visita!</p>
 		</footer>
@@ -642,6 +680,95 @@
 	</body>
 
 	<script>
+
+		//=====MENU dropdown=====
+
+		// Quando o usuário clica no botão, alternar entre ocultar e mostrar o conteúdo suspenso.
+		function showselect() {
+		document.getElementById("myDropdown").classList.toggle("show");
+			//mostra cada elemento do select com a classe show que coloca eles como display block
+			if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+			/*muda o aria-expanded do botao*/
+			var dropbtn = document.getElementById('custonselect');
+			var expanded = dropbtn.getAttribute('aria-expanded');
+			if (expanded === 'true') {
+				dropbtn.setAttribute('aria-expanded', 'false');
+			}else{
+				dropbtn.setAttribute('aria-expanded', 'true');
+			}
+		}
+
+		//=====TAB=====
+
+		function openCity(evt, cityName) {
+		var i, city;
+		var tabcontent = [];
+		var tablinks = [];
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+
+			
+
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+			tablinks[i].setAttribute('tabindex','-1');
+			try{
+				tablinks[i].ariaSelected = tablinks[i].ariaSelected.replace("true","false");
+			} catch (e) {
+				var erro_tab = document.getElementById("erro_tab");
+				var paragrafoExistente = erro_tab.querySelector("p");
+
+				if (!paragrafoExistente) {
+					var paragrafo = document.createElement("p");
+					paragrafo.textContent = "*Seu browser nao suporta a propriedade 'ariaSelected'.";
+					erro_tab.appendChild(paragrafo);
+				}
+				console.error(e)
+			}
+			
+		}
+		city = document.getElementById(cityName);
+		city.style.display = "block";
+		evt.currentTarget.className += " active";
+
+		tabcity = document.getElementById("tab-" + cityName);
+		tabcity.setAttribute('aria-selected', 'true');
+		tabcity.setAttribute('tabindex','0');
+		}
+
+		//======Formularios backend======
+		// Captura todos os formulários com a classe "formulario-compartilhado"
+		var forms = document.querySelectorAll(".backend");
+
+		// Adiciona um evento de envio (submit) a cada formulário
+		forms.forEach(function(form) {
+			form.addEventListener("submit", function(event) {
+				event.preventDefault(); // Impede o envio padrão do formulário
+
+				// Simulação de envio para o "backend"
+				setTimeout(function() {
+					alert("O formulário foi enviado com sucesso!");
+					form.reset(); // Limpa o formulário após o envio simulado
+				}, 1000); // Simula um atraso de 1 segundo (1000 milissegundos)
+			});
+		});
+
+		//=====Aria-Live=====
+
 		var contagem = 0;
 		function update1() {
 			contagem++;
