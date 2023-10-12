@@ -155,7 +155,7 @@
 			transform: rotate(-135deg);
 			-webkit-transform: rotate(-135deg);
 			}
-
+			/*===Dropdown===*/
 			.dropbtn {
 			background: #3498DB;
 			color: white;
@@ -191,8 +191,11 @@
 			display: block;
 			}
 
-			.dropdown a:hover {background-color: #ddd;}
-
+			.dropdown a:hover, .dropdown a:focus{
+				background-color: #ddd;
+				border: 3px solid blue;
+				border-radius: 10px;
+			}
 			.show {display: block;}
 
 			/* Style the tab */
@@ -393,7 +396,7 @@
 			</div>
 			<p>No iOS o span quebra a leitura do voiceOver, utilizando a role text é possivel evitar esse comportamento.</p>
 			<div class="miniconteudo">
-				<p role="text">Esta é o inicio do parágrafo. <span style="font-weight:bold"> Este é o span.</span> E este é o final do parágrafo.</p>
+				<p role="text">Este é o início do parágrafo. <span style="font-weight:bold"> Este é o span.</span> E este é o final do parágrafo.</p>
 			</div>
 			<h3> Seções </h3>
 			<p>Geralmente, seções referem-se a partes significativas e estruturadas de uma página da web que têm um conteúdo relacionado e um cabeçalho descritivo. Eles são frequentemente marcados com elementos como section, article, aside, entre outros, para indicar sua estrutura semântica.</p>
@@ -440,10 +443,10 @@
 					<p> Este é o segundo parágrafo do aside. </p>
 				</aside>
 			</div>
-			<p>Agora um exemplo de role region sem aria-label</p>
+			<p>Agora um exemplo de uma role region sem uma div sem aria-label</p>
 			<div role="region" class="miniconteudo">
-				<p> Este é o primeiro parágrafo da Segunda região. </p>
-				<p> Este é o segundo parágrafo da segunda região. </p>
+				<p> Este é o primeiro parágrafo da region sem aria-label. </p>
+				<p> Este é o segundo parágrafo da region sem aria-label. </p>
 			</div>
 
 			<a href="#a11y" aria-label="Voltar ao início" class="lvoltar"><span class="seta_cima"></span>&nbsp; Voltar ao início &nbsp;<span class="seta_cima"></span></a>
@@ -748,13 +751,14 @@
 					<!-- dropdown customizado -->
 					<h3> Menu customizado simples aberto por um botão</h3>
 					<div class="dropdown">
-						<button type="button" id="custonselect" onclick="showselect()" class="dropbtn" aria-expanded="false" aria-controls="myDropdown" >Propriedades</button>
-						<div id="myDropdown" class="dropdown-content" role="menu">
-						<a role="menuitem" href="#home">Home</a>
-						<a role="menuitem" href="#about">Sobre</a>
-						<a role="menuitem" href="#contact">Contato</a>
+						<button type="button" id="customselect" class="dropbtn">Propriedades</button>
+						<div id="myDropdown" class="dropdown-content" role="listbox">
+							<a role="option" href="#home">Home</a>
+							<a role="option" href="#about">Sobre</a>
+							<a role="option" href="#contact">Contato</a>
 						</div>
 					</div>
+
 					<div class="botoes">
 						<input type="submit" value="mandar" />
 						<input type="reset" value="limpar" />
@@ -800,30 +804,82 @@
 			}
 		}
 		//=====Dropdown cutomizado=====
-		// Quando o usuário clica no botão, alternar entre ocultar e mostrar o conteúdo suspenso.
-		function showselect() {
-		document.getElementById("myDropdown").classList.toggle("show");
-			//mostra cada elemento do select com a classe show que coloca eles como display block
-			if (!event.target.matches('.dropbtn')) {
-				var dropdowns = document.getElementsByClassName("dropdown-content");
-				var i;
-				for (i = 0; i < dropdowns.length; i++) {
-				var openDropdown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-						openDropdown.classList.remove('show');
-					}
-				}
-			}
-			/*muda o aria-expanded do botao*/
-			var dropbtn = document.getElementById('custonselect');
-			var expanded = dropbtn.getAttribute('aria-expanded');
-			if (expanded === 'true') {
-				dropbtn.setAttribute('aria-expanded', 'false');
-			}else{
-				dropbtn.setAttribute('aria-expanded', 'true');
-			}
-		}
+        // Variáveis para controle
+        let dropdownOpen = false;
+        let focusedItem = -1;
 
+        const customSelect = document.getElementById("customselect");
+        const dropdownContent = document.getElementById("myDropdown");
+        const dropdownLinks = dropdownContent.getElementsByTagName("a");
+        const numLinks = dropdownLinks.length;
+
+        // Abrir o dropdown
+        function openDropdown() {
+            dropdownOpen = true;
+            dropdownContent.style.display = "block";
+            focusedItem = 0;
+            dropdownLinks[focusedItem].focus();
+        }
+
+        // Fechar o dropdown
+        function closeDropdown() {
+            dropdownOpen = false;
+            dropdownContent.style.display = "none";
+			customSelect.focus();
+        }
+
+        // Evento ao clicar no botão
+        customSelect.addEventListener("click", function () {
+            if (dropdownOpen) {
+                closeDropdown();
+            } else {
+                openDropdown();
+            }
+        });
+
+        // Evento ao clicar fora do dropdown
+        document.addEventListener("click", function (e) {
+            if (!customSelect.contains(e.target) && dropdownOpen) {
+                closeDropdown();
+            }
+        });
+
+        // Evento ao pressionar a tecla Esc
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && dropdownOpen) {
+                closeDropdown();
+            }
+        });
+
+		// evento de escuta global para as setas
+		document.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowDown" && dropdownOpen) {
+                e.preventDefault();
+                focusedItem = (focusedItem + 1) % numLinks;
+                dropdownLinks[focusedItem].focus();
+            } else if (e.key === "ArrowUp" && dropdownOpen) {
+                e.preventDefault();
+                focusedItem = (focusedItem - 1 + numLinks) % numLinks;
+                dropdownLinks[focusedItem].focus();
+            }
+        });
+
+
+        // Evento ao perder o foco do dropdown
+        dropdownContent.addEventListener("blur", function () {
+            if (dropdownOpen) {
+                closeDropdown();
+            }
+        });
+
+        // Evento ao pressionar a tecla Tab
+        dropdownContent.addEventListener("keydown", function (e) {
+            if (e.key === "Tab" && dropdownOpen) {
+                e.preventDefault();
+                closeDropdown();
+                customSelect.focus();
+            }
+        });
 		//=====TAB=====
 
 		function openCity(evt, cityName) {
