@@ -23,7 +23,7 @@
 			}
 			h3 {
 				background: rgb(194,194,194);
-				background: linear-gradient(90deg, rgba(194,194,194,1) 0%, rgba(194,194,194,1) 50%, rgba(255,255,255,1) 100%);
+				background: linear-gradient(90deg, rgba(194,194,194,1) 0%, rgba(194,194,194,1) 20%, rgba(255,255,255,1) 70%);
 				color: black;
 				padding: 5px;
 				margin: 20px 10px 5px -20px;
@@ -43,7 +43,11 @@
 				flex-direction: column;
 				padding-bottom: 10px;
 			}
-
+			.botoes input{
+				width: fit-content;
+				min-width: 100px;
+				height: 30px;
+			}
 			button, input, fieldset, textarea, select {
 				width: fit-content;
 				min-width: 200px;
@@ -96,7 +100,6 @@
 				padding-right: 15px;
 				margin: 0 10px;
 				display: flex;
-
 			} 
 			.listalimpa li i,.listalimpa li i:visited,.listalimpa li i:active{
 				font-size: 30px;
@@ -104,7 +107,6 @@
 				text-decoration: none;
 			}
 
-			
 			table {
 			  font-family: arial, sans-serif;
 			  border-collapse: collapse;
@@ -214,12 +216,15 @@
 
 			/* Change background color of buttons on hover */
 			.tab .tablinks:hover {
-			background-color: #ddd;
+			background-color: rgb(122, 122, 122);
+			color: white;
 			}
 
 			/* Create an active/current tablink class */
 			.tab .tablinks.active {
-			background-color: #ccc;
+			background-color: blue;
+			color: white;
+			font-weight: bold;
 			}
 
 			/* Style the tab content */
@@ -286,16 +291,16 @@
 			<h2 id="Atexto" class="titulo"><i class="fa fa-paragraph" aria-hidden="true"></i>  Elementos textuais </h2>
 			<div class="conteudo">
 				<h3> Parágrafos e quebra de linha </h3>
-				<p> A tag p é um elemento usado para representar blocos de texto e a tag br é usada para criar uma quebra de linha. </p>
+				<p> A tag p é um elemento usado para representar blocos de texto e a tag br é usada para criar uma quebra de linha. A quebra de linha pode ter diferentes comportamentos dependendo de for sua implementaç </p>
 				<div class="miniconteudo">
 					<p> Esta é a parte do paragrafo antes da quebra de linha <br> Esta é a parte do paragrafo depois da quebra de linha.</p>
 				</div>
 				
 				<p> Agora iremos utilizar duas quebras de linhas.</p>
 				<div class="miniconteudo">
-					<p> Esta é a parte do paragrafo antes da quebra dupla <br><br> Esta é a parte do paragrafo depois da quebra dupla, o resultado é um elemento em branco.</p>
+					<p> Esta é a parte do paragrafo antes da quebra dupla <br><br> Esta é a parte do paragrafo depois da quebra dupla, um comportamento comum da quebra dupla é um elemento em branco.</p>
 				</div>
-				<p>A quebra de linha pode ter diferentes comportamentos, caso a tag BR seja omitida, com um aria-hiden, os espaços próximos a tag serão ignorados, o que resultará na junção das palavras para o leitor de tela.</p>
+				<p>Caso a tag BR seja omitida, com um aria-hiden, os espaços próximos a tag serão ignorados, o que resultará na junção das palavras para o leitor de tela.</p>
 				<div class="miniconteudo">
 					<p> Esta é a parte do paragrafo antes da quebra de linha <br aria-hidden="true"> Está é a parte do paragrafo depois da quebra de linha.</p>
 				</div>
@@ -388,7 +393,7 @@
 			</div>
 			<p>No iOS o span quebra a leitura, utilizando a role text é possivel evitar esse comportamento.</p>
 			<div class="miniconteudo">
-				<p>Esta é o inicio do paragrafo, <span role="text"> este é o span </span> e este é o final do paragrafo.</p>
+				<p><div role="text">Esta é o inicio do paragrafo, <span> este é o span </span> e este é o final do paragrafo.</div></p>
 			</div>
 			<h3> Seções </h3>
 			<p>Geralmente, seções referem-se a partes significativas e estruturadas de uma página da web que têm um conteúdo relacionado e um cabeçalho descritivo. Eles são frequentemente marcados com elementos como section, article, aside, entre outros, para indicar sua estrutura semântica.</p>
@@ -691,8 +696,10 @@
 					<input type="checkbox" name="curso" id="logica" value="logica" />
 				</fieldset>
 
-				<div><input type="submit" value="mandar" /></div>
-				<div><input type="reset" value="limpar" /></div>
+				<div class="botoes">
+					<input type="submit" value="mandar" />
+					<input type="reset" value="limpar" />
+				</div>
 
 			</form>
 			<a href="#a11y" aria-label="Voltar ao início" class="lvoltar"><span class="seta_cima"></span>&nbsp; Voltar ao início &nbsp;<span class="seta_cima"></span></a>
@@ -748,8 +755,10 @@
 						<a role="menuitem" href="#contact">Contato</a>
 						</div>
 					</div>
-					<div><input type="submit" value="mandar" /></div>
-					<div><input type="reset" value="limpar" /></div>
+					<div class="botoes">
+						<input type="submit" value="mandar" />
+						<input type="reset" value="limpar" />
+					</div>
 				</form>
 				<a href="#a11y" aria-label="Voltar ao início" class="lvoltar"><span class="seta_cima"></span>&nbsp; Voltar ao início &nbsp;<span class="seta_cima"></span></a>
 			</div>
