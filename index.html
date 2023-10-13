@@ -938,6 +938,31 @@
 			document.getElementById("result1").innerHTML= "contagem " + contagem;
 		}
 
+        //===Teste secreto===
+		function isScreenReaderUsed() {
+			const ua = navigator.userAgent || navigator.vendor || window.opera;
+			var log1 = "a11y leitor teste";
+			// Verificar se o usuário está usando um navegador que é frequentemente usado com leitores de tela.
+			const isKnownScreenReaderUserAgent = /(screenreader|speak)/i.test(ua);
+			log1 += "\nScreen Reader User Agent: " + isKnownScreenReaderUserAgent;
+			// Verificar se a função `speechSynthesis` está disponível, o que pode indicar o uso de um leitor de tela.
+			const isSpeechSynthesisAvailable = "speechSynthesis" in window;
+			log1 += "\nSpeech Synthesis: " + isSpeechSynthesisAvailable;
+			// Verificar se a função `AccessibilityEvent` está disponível, o que pode indicar o uso de um leitor de tela Android.
+			const isAccessibilityEventAvailable = "AccessibilityEvent" in window;
+			log1 += "\nAccessibility Android: " + isAccessibilityEventAvailable;
+			alert(log1);
+			if (isKnownScreenReaderUserAgent || isSpeechSynthesisAvailable || isAccessibilityEventAvailable) {
+				log1 += "\nResultado: Um leitor de tela está sendo usado.";
+			} else {
+				log1 += "\nResultado: Nenhum leitor de tela detectado.";
+			}
+			console.log(log1);
+		}
+		isScreenReaderUsed();
+
+
+
 	</script>
 
 </html>
