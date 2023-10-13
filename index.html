@@ -258,7 +258,7 @@
 		</header>
 		<main>
 			<div class="conteudo">
-				<p>O objetivo dessa pagina é oferecer uma biblioteca de componentes HTML, com acesso fácil e rápido, para realização de testes de Acessibilidade.
+				<p>O objetivo dessa página é oferecer uma biblioteca de componentes HTML, com acesso fácil e rápido, para realização de testes de Acessibilidade.
 				<br>
 				Possibilitando, dessa forma, testar seus comportamentos em diversas plataformas e tecnologias assistivas.</p>
 				<p>Escolha o tipo de componente a ser verificado na lista abaixo:</p>
@@ -397,6 +397,10 @@
 			<p>No iOS o span quebra a leitura do voiceOver, utilizando a role text é possivel evitar esse comportamento.</p>
 			<div class="miniconteudo">
 				<p role="text">Este é o início do parágrafo. <span style="font-weight:bold"> Este é o span.</span> E este é o final do parágrafo.</p>
+			</div>
+			<p>Utilizando a role text com a tag strong.</p>
+			<div class="miniconteudo">
+				<p role="text">Este é o início do parágrafo. <strong> Este é o span.</strong> E este é o final do parágrafo.</p>
 			</div>
 			<h3> Seções </h3>
 			<p>Geralmente, seções referem-se a partes significativas e estruturadas de uma página da web que têm um conteúdo relacionado e um cabeçalho descritivo. Eles são frequentemente marcados com elementos como section, article, aside, entre outros, para indicar sua estrutura semântica.</p>
@@ -951,7 +955,6 @@
 			// Verificar se a função `AccessibilityEvent` está disponível, o que pode indicar o uso de um leitor de tela Android.
 			const isAccessibilityEventAvailable = "AccessibilityEvent" in window;
 			log1 += "\nAccessibility Android: " + isAccessibilityEventAvailable;
-			alert(log1);
 			if (isKnownScreenReaderUserAgent || isSpeechSynthesisAvailable || isAccessibilityEventAvailable) {
 				log1 += "\nResultado: Um leitor de tela está sendo usado.";
 			} else {
@@ -960,8 +963,6 @@
 			console.log(log1);
 		}
 		isScreenReaderUsed();
-
-
 
 	</script>
 
