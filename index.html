@@ -191,10 +191,9 @@
 			display: block;
 			}
 
-			.dropdown a:hover, .dropdown a:focus{
+			.dropdown a:hover{
 				background-color: #ddd;
-				border: 3px solid blue;
-				border-radius: 10px;
+				border: 0;
 			}
 			.show {display: block;}
 
@@ -370,7 +369,9 @@
 					<p> exemplo 3 com Horário hora e minuto:
 					<time datetime="19:30">19 horas e 30 minutos</time></p>
 				</div>
-
+				<h3> Separador </h3>
+				<p>A Tag hr (horizontal rule) é uma tag de elemento vazio que é usada para criar uma linha horizontal no documento HTML, geralmente para separar seções de conteúdo.</p>
+					<hr>
 				<a href="#a11y" aria-label="Voltar ao início" class="lvoltar"><span class="seta_cima"></span>&nbsp; Voltar ao início &nbsp;<span class="seta_cima"></span></a>
 			</div>
 			<!-- ------------------------------------------------------------------------------------------------------ -->		
@@ -614,9 +615,9 @@
 					<img src = "a11y.svg" alt="Homem cego atravessando faixa de pedestre"/>
 				</div>
 				<div>
-					<p> Imagem sem alt e com figcaption:</p>
+					<p> Imagem com figcaption:</p>
 					<figure>
-						<img src="a11y.png"/>
+						<img src="a11y.png" alt="Homem cego atravessando faixa de pedestre"/>
 						<figcaption>Homem cego atravessando faixa de pedestre</figcaption>
 					</figure>
 				</div>
@@ -755,11 +756,11 @@
 					<!-- dropdown customizado -->
 					<h3> Menu customizado simples aberto por um botão</h3>
 					<div class="dropdown">
-						<button type="button" id="customselect" class="dropbtn">Propriedades</button>
+						<button type="button" id="customselect" class="dropbtn" aria-haspopup="listbox" aria-controls="myDropdown" aria-expanded="false">Propriedades</button>
 						<div id="myDropdown" class="dropdown-content" role="listbox">
-							<a role="option" href="#home">Home</a>
-							<a role="option" href="#about">Sobre</a>
-							<a role="option" href="#contact">Contato</a>
+							<a role="option" href="#">Opção 1</a>
+							<a role="option" href="#">Opção 2</a>
+							<a role="option" href="#">Opção 3</a>
 						</div>
 					</div>
 
